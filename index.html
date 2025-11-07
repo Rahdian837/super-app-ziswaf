@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Aplikasi Terpadu Ziswaf Albahjah</title>
+    <!-- Memuat Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat font Inter untuk tampilan yang modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Menggunakan font Inter sebagai default */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Kustomisasi scrollbar untuk tampilan yang lebih bersih */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 antialiased">
+
+    <!-- Kontainer Utama -->
+    <div class="min-h-screen flex flex-col">
+
+        <!-- Header / Pahlawan (Hero Section) -->
+        <header class="bg-gradient-to-r from-blue-700 to-blue-900 text-white shadow-xl">
+            <div class="container mx-auto px-6 py-12 md:py-16">
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Portal Aplikasi Terpadu</h1>
+                <p class="mt-3 text-lg md:text-xl text-blue-100">Satu pintu untuk semua aplikasi manajemen Anda.</p>
+            </div>
+        </header>
+
+        <!-- Konten Utama (Grid Aplikasi) -->
+        <main class="flex-1">
+            <div class="container mx-auto px-6 py-10 md:py-12">
+                
+                <!-- Judul Grid -->
+                <h2 class="text-2xl font-bold text-gray-800 mb-8">Pilih Aplikasi</h2>
+
+                <!-- Grid Kartu Aplikasi -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Kartu 1: Budgeting Laz -->
+                    <a href="https://rahdian837.github.io/budgeting_laz/" target="_blank" rel="noopener noreferrer"
+                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="p-6 bg-blue-50 flex items-center justify-center">
+                            <!-- Ikon SVG: Neraca/Skala (untuk Budgeting) -->
+                            <svg class="w-16 h-16 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47M18.75 4.97C19.53 5.488 20.168 6.168 20.75 7.016M4.5 20.25c-1.472 0-2.882-.265-4.185-.75M4.5 20.25c1.472 0 2.882-.265 4.185-.75m0 0c-1.136.486-2.316.845-3.543 1.087M19.5 20.25c1.136.486 2.316.845 3.543 1.087M3.25 7.016C3.832 6.168 4.47 5.488 5.25 4.97M3.25 7.016c.142.22.285.435.43.645M18.75 4.97c.142.22.285.435.43.645m0 0c.391.61.766 1.246 1.106 1.907M6.347 7.661C6.737 8.27 7.111 8.906 7.452 9.565m10.096-1.904c.391.61.766 1.246 1.106 1.907M10.048 9.565c.34-.659.715-1.295 1.106-1.907M10.048 9.565c.391.61.766 1.246 1.106 1.907m0 0c.34.659.715 1.295 1.106 1.907" />
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Budgeting Laz</h3>
+                            <p class="text-gray-600 text-sm mb-4">Aplikasi untuk manajemen dan alokasi anggaran.</p>
+                            <span class="text-blue-600 font-semibold group-hover:text-blue-800 flex items-center">
+                                Buka Aplikasi
+                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Kartu 2: Insentif Laz -->
+                    <a href="https://rahdian837.github.io/laz-insentif-github/" target="_blank" rel="noopener noreferrer"
+                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="p-6 bg-green-50 flex items-center justify-center">
+                            <!-- Ikon SVG: Hadiah (untuk Insentif) -->
+                            <svg class="w-16 h-16 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a2.25 2.25 0 01-2.25 2.25H5.25a2.25 2.25 0 01-2.25-2.25v-8.25M12 11.25v9M12.75 5.25a.75.75 0 00-1.5 0v3.75a.75.75 0 001.5 0V5.25z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 11.25h16.5M10.125 1.5C10.125 1.086 10.461.75 10.875.75h2.25c.414 0 .75.336.75.75v3a.75.75 0 01-.75.75h-2.25a.75.75 0 01-.75-.75v-3z" />
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Insentif Laz</h3>
+                            <p class="text-gray-600 text-sm mb-4">Perhitungan dan pelaporan insentif karyawan.</p>
+                            <span class="text-green-600 font-semibold group-hover:text-green-800 flex items-center">
+                                Buka Aplikasi
+                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Kartu 3: Laporan BOD -->
+                    <a href="https://rahdian837.github.io/Laporan-BOD-Laz-Albahjah/" target="_blank" rel="noopener noreferrer"
+                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="p-6 bg-purple-50 flex items-center justify-center">
+                            <!-- Ikon SVG: Tas Kerja (untuk BOD) -->
+                            <svg class="w-16 h-16 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.02a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18.17v-4.02m16.5 0a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25m16.5 0v-4.02a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25v4.02" />
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Laporan BOD</h3>
+                            <p class="text-gray-600 text-sm mb-4">Laporan strategis untuk Board of Directors.</p>
+                            <span class="text-purple-600 font-semibold group-hover:text-purple-800 flex items-center">
+                                Buka Aplikasi
+                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Kartu 4: Albahjah Peduli -->
+                    <a href="https://rahdian837.github.io/Laporan-Albahjah-peduli/" target="_blank" rel="noopener noreferrer"
+                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="p-6 bg-red-50 flex items-center justify-center">
+                            <!-- Ikon SVG: Hati (untuk Peduli) -->
+                            <svg class="w-16 h-16 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Albahjah Peduli</h3>
+                            <p class="text-gray-600 text-sm mb-4">Laporan program dan aktivitas donasi sosial.</p>
+                            <span class="text-red-600 font-semibold group-hover:text-red-800 flex items-center">
+                                Buka Aplikasi
+                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </span>
+                        </div>
+                    </a>
+
+                    <!-- Kartu 5: Manajemen Tugas -->
+                    <a href="https://rahdian837.github.io/Manajemen-tugas-ES-BBC-1B/" target="_blank" rel="noopener noreferrer"
+                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="p-6 bg-yellow-50 flex items-center justify-center">
+                            <!-- Ikon SVG: Papan Klip (untuk Tugas) -->
+                            <svg class="w-16 h-16 text-yellow-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h.01M15 12h.01M10.5 16.5h3M13.5 16.5h-3M10.5 16.5c-.621 0-1.125-.504-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125h3c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125h-3zM12 21a9 9 0 110-18 9 9 0 010 18z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Manajemen Tugas</h3>
+                            <p class="text-gray-600 text-sm mb-4">Pengelolaan tugas dan proyek tim ES-BBC-1B.</p>
+                            <span class="text-yellow-600 font-semibold group-hover:text-yellow-800 flex items-center">
+                                Buka Aplikasi
+                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </span>
+                        </div>
+                    </a>
+                    
+                    <!-- Kartu 6: Laporan Kas Pondok -->
+                    <a href="https://rahdian837.github.io/Laporan-kas-pondok/" target="_blank" rel="noopener noreferrer"
+                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="p-6 bg-indigo-50 flex items-center justify-center">
+                            <!-- Ikon SVG: Arsip (untuk Laporan Kas) -->
+                            <svg class="w-16 h-16 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10.5 11.25h3M12 15V7.5M3 7.5h18" />
+                            </svg>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Laporan Kas Pondok</h3>
+                            <p class="text-gray-600 text-sm mb-4">Pencatatan dan pelaporan kas masuk & keluar.</p>
+                            <span class="text-indigo-600 font-semibold group-hover:text-indigo-800 flex items-center">
+                                Buka Aplikasi
+                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                            </span>
+                        </div>
+                    </a>
+
+                </div> <!-- Akhir dari Grid -->
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-gray-400 mt-12">
+            <div class="container mx-auto px-6 py-8 text-center">
+                <p>&copy; 2025 Portal Aplikasi Terpadu. Dibuat dengan ❤️.</p>
+                <p class="text-sm mt-1">Dikelola oleh Tim Anda</p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

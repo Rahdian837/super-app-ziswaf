@@ -3,187 +3,570 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Aplikasi Terpadu Ziswaf Albahjah</title>
-    <!-- Memuat Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Memuat font Inter untuk tampilan yang modern -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>LAZ Integrated System - Dashboard Terpadu</title>
     <style>
-        /* Menggunakan font Inter sebagai default */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 15px;
         }
-        /* Kustomisasi scrollbar untuk tampilan yang lebih bersih */
-        ::-webkit-scrollbar {
-            width: 8px;
+
+        .wrapper {
+            max-width: 1600px;
+            margin: 0 auto;
         }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            margin-bottom: 25px;
+            text-align: center;
+            animation: slideDown 0.5s ease;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
+
+        .header h1 {
+            color: #333;
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
+
+        .header p {
+            color: #666;
+            font-size: 1em;
+        }
+
+        .header-subtitle {
+            font-size: 0.9em;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            margin-bottom: 25px;
+            overflow-x: auto;
+            animation: slideDown 0.6s ease;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            min-width: max-content;
+        }
+
+        .nav-btn {
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Content Area */
+        .content-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: fadeIn 0.5s ease;
+            min-height: 600px;
+        }
+
+        .module {
+            display: none;
+            width: 100%;
+            height: 100%;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .module.active {
+            display: block;
+        }
+
+        .module-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px 30px;
+            font-size: 1.5em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .module-content {
+            padding: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            display: block;
+        }
+
+        /* Welcome Module */
+        .welcome-content {
+            padding: 60px 30px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+        }
+
+        .welcome-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .welcome-content h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .welcome-content p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            padding: 30px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Loading Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            iframe {
+                height: 600px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                justify-content: flex-start;
+            }
+
+            .nav-btn {
+                padding: 10px 15px;
+                font-size: 0.85em;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .header p {
+                font-size: 0.9em;
+            }
+
+            iframe {
+                height: 500px;
+            }
+
+            .module-header {
+                padding: 20px;
+                font-size: 1.2em;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-content {
+                padding: 30px 20px;
+            }
+
+            .welcome-content h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                margin-bottom: 15px;
+                padding: 15px;
+            }
+
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 0.8em;
+            }
+
+            iframe {
+                height: 400px;
+            }
+
+            .welcome-icon {
+                font-size: 3em;
+            }
+
+            .welcome-content h2 {
+                font-size: 1.3em;
+            }
+        }
+
+        /* Loading Spinner */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-left: 8px;
         }
     </style>
 </head>
-<body class="bg-gray-100 antialiased">
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <div class="header">
+            <h1>📊 LAZ Integrated System</h1>
+            <p>Platform Manajemen Terpadu untuk Lembaga Amil Zakat</p>
+            <p class="header-subtitle">Sistem Terintegrasi Budgeting, Insentif, Laporan, dan Manajemen Tugas</p>
+        </div>
 
-    <!-- Kontainer Utama -->
-    <div class="min-h-screen flex flex-col">
-
-        <!-- Header / Pahlawan (Hero Section) -->
-        <header class="bg-gradient-to-r from-blue-700 to-blue-900 text-white shadow-xl">
-            <div class="container mx-auto px-6 py-12 md:py-16">
-                <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Portal Aplikasi Terpadu</h1>
-                <p class="mt-3 text-lg md:text-xl text-blue-100">Satu pintu untuk semua aplikasi manajemen Anda.</p>
+        <!-- Navigation -->
+        <div class="nav-container">
+            <div class="navbar">
+                <button class="nav-btn active" onclick="switchModule('dashboard', this)">🏠 Dashboard</button>
+                <button class="nav-btn" onclick="switchModule('budgeting', this)">💰 Budgeting</button>
+                <button class="nav-btn" onclick="switchModule('insentif', this)">🎁 Insentif</button>
+                <button class="nav-btn" onclick="switchModule('bod', this)">📋 Laporan BOD</button>
+                <button class="nav-btn" onclick="switchModule('peduli', this)">❤️ Peduli</button>
+                <button class="nav-btn" onclick="switchModule('tugas', this)">✅ Manajemen Tugas</button>
+                <button class="nav-btn" onclick="switchModule('kas', this)">💵 Laporan Kas</button>
+		<button class="nav-btn" onclick="switchModule('evaluasi', this)">📈 Evaluasi LAZ</button>
             </div>
-        </header>
+        </div>
 
-        <!-- Konten Utama (Grid Aplikasi) -->
-        <main class="flex-1">
-            <div class="container mx-auto px-6 py-10 md:py-12">
-                
-                <!-- Judul Grid -->
-                <h2 class="text-2xl font-bold text-gray-800 mb-8">Pilih Aplikasi</h2>
-
-                <!-- Grid Kartu Aplikasi -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    <!-- Kartu 1: Budgeting Laz -->
-                    <a href="https://rahdian837.github.io/budgeting_laz/" target="_blank" rel="noopener noreferrer"
-                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-6 bg-blue-50 flex items-center justify-center">
-                            <!-- Ikon SVG: Neraca/Skala (untuk Budgeting) -->
-                            <svg class="w-16 h-16 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47M18.75 4.97C19.53 5.488 20.168 6.168 20.75 7.016M4.5 20.25c-1.472 0-2.882-.265-4.185-.75M4.5 20.25c1.472 0 2.882-.265 4.185-.75m0 0c-1.136.486-2.316.845-3.543 1.087M19.5 20.25c1.136.486 2.316.845 3.543 1.087M3.25 7.016C3.832 6.168 4.47 5.488 5.25 4.97M3.25 7.016c.142.22.285.435.43.645M18.75 4.97c.142.22.285.435.43.645m0 0c.391.61.766 1.246 1.106 1.907M6.347 7.661C6.737 8.27 7.111 8.906 7.452 9.565m10.096-1.904c.391.61.766 1.246 1.106 1.907M10.048 9.565c.34-.659.715-1.295 1.106-1.907M10.048 9.565c.391.61.766 1.246 1.106 1.907m0 0c.34.659.715 1.295 1.106 1.907" />
-                            </svg>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Budgeting Laz</h3>
-                            <p class="text-gray-600 text-sm mb-4">Aplikasi untuk manajemen dan alokasi anggaran.</p>
-                            <span class="text-blue-600 font-semibold group-hover:text-blue-800 flex items-center">
-                                Buka Aplikasi
-                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                            </span>
-                        </div>
-                    </a>
-
-                    <!-- Kartu 2: Insentif Laz -->
-                    <a href="https://rahdian837.github.io/laz-insentif-github/" target="_blank" rel="noopener noreferrer"
-                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-6 bg-green-50 flex items-center justify-center">
-                            <!-- Ikon SVG: Hadiah (untuk Insentif) -->
-                            <svg class="w-16 h-16 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a2.25 2.25 0 01-2.25 2.25H5.25a2.25 2.25 0 01-2.25-2.25v-8.25M12 11.25v9M12.75 5.25a.75.75 0 00-1.5 0v3.75a.75.75 0 001.5 0V5.25z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 11.25h16.5M10.125 1.5C10.125 1.086 10.461.75 10.875.75h2.25c.414 0 .75.336.75.75v3a.75.75 0 01-.75.75h-2.25a.75.75 0 01-.75-.75v-3z" />
-                            </svg>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Insentif Laz</h3>
-                            <p class="text-gray-600 text-sm mb-4">Perhitungan dan pelaporan insentif karyawan.</p>
-                            <span class="text-green-600 font-semibold group-hover:text-green-800 flex items-center">
-                                Buka Aplikasi
-                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                            </span>
-                        </div>
-                    </a>
-
-                    <!-- Kartu 3: Laporan BOD -->
-                    <a href="https://rahdian837.github.io/Laporan-BOD-Laz-Albahjah/" target="_blank" rel="noopener noreferrer"
-                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-6 bg-purple-50 flex items-center justify-center">
-                            <!-- Ikon SVG: Tas Kerja (untuk BOD) -->
-                            <svg class="w-16 h-16 text-purple-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.02a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18.17v-4.02m16.5 0a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25m16.5 0v-4.02a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25v4.02" />
-                            </svg>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Laporan BOD</h3>
-                            <p class="text-gray-600 text-sm mb-4">Laporan strategis untuk Board of Directors.</p>
-                            <span class="text-purple-600 font-semibold group-hover:text-purple-800 flex items-center">
-                                Buka Aplikasi
-                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                            </span>
-                        </div>
-                    </a>
-
-                    <!-- Kartu 4: Albahjah Peduli -->
-                    <a href="https://rahdian837.github.io/Laporan-Albahjah-peduli/" target="_blank" rel="noopener noreferrer"
-                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-6 bg-red-50 flex items-center justify-center">
-                            <!-- Ikon SVG: Hati (untuk Peduli) -->
-                            <svg class="w-16 h-16 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                            </svg>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Albahjah Peduli</h3>
-                            <p class="text-gray-600 text-sm mb-4">Laporan program dan aktivitas donasi sosial.</p>
-                            <span class="text-red-600 font-semibold group-hover:text-red-800 flex items-center">
-                                Buka Aplikasi
-                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                            </span>
-                        </div>
-                    </a>
-
-                    <!-- Kartu 5: Manajemen Tugas -->
-                    <a href="https://rahdian837.github.io/Manajemen-tugas-ES-BBC-1B/" target="_blank" rel="noopener noreferrer"
-                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-6 bg-yellow-50 flex items-center justify-center">
-                            <!-- Ikon SVG: Papan Klip (untuk Tugas) -->
-                            <svg class="w-16 h-16 text-yellow-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h.01M15 12h.01M10.5 16.5h3M13.5 16.5h-3M10.5 16.5c-.621 0-1.125-.504-1.125-1.125v-1.5c0-.621.504-1.125 1.125-1.125h3c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125h-3zM12 21a9 9 0 110-18 9 9 0 010 18z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                            </svg>
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Manajemen Tugas</h3>
-                            <p class="text-gray-600 text-sm mb-4">Pengelolaan tugas dan proyek tim ES-BBC-1B.</p>
-                            <span class="text-yellow-600 font-semibold group-hover:text-yellow-800 flex items-center">
-                                Buka Aplikasi
-                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                            </span>
-                        </div>
-                    </a>
+        <!-- Content -->
+        <div class="content-container">
+            <!-- Dashboard Module -->
+            <div id="dashboard" class="module active">
+                <div class="welcome-content">
+                    <div class="welcome-icon">📊</div>
+                    <h2>Selamat Datang di LAZ Integrated System</h2>
+                    <p>Platform manajemen terpadu yang mengintegrasikan semua kebutuhan operasional lembaga Anda dalam satu dashboard yang mudah digunakan.</p>
                     
-                    <!-- Kartu 6: Laporan Kas Pondok -->
-                    <a href="https://rahdian837.github.io/Laporan-kas-pondok/" target="_blank" rel="noopener noreferrer"
-                       class="bg-white rounded-xl shadow-lg overflow-hidden group transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="p-6 bg-indigo-50 flex items-center justify-center">
-                            <!-- Ikon SVG: Arsip (untuk Laporan Kas) -->
-                            <svg class="w-16 h-16 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10.5 11.25h3M12 15V7.5M3 7.5h18" />
-                            </svg>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">💰</div>
+                            <h3>Budgeting</h3>
+                            <p>Kelola anggaran keuangan dan pengeluaran dengan efisien</p>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Laporan Kas Pondok</h3>
-                            <p class="text-gray-600 text-sm mb-4">Pencatatan dan pelaporan kas masuk & keluar.</p>
-                            <span class="text-indigo-600 font-semibold group-hover:text-indigo-800 flex items-center">
-                                Buka Aplikasi
-                                <svg class="w-5 h-5 ml-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                            </span>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎁</div>
+                            <h3>Insentif</h3>
+                            <p>Administrasi data insentif karyawan dan stakeholder</p>
                         </div>
-                    </a>
+                        <div class="feature-card">
+                            <div class="feature-icon">📋</div>
+                            <h3>Laporan BOD</h3>
+                            <p>Buat dan kelola laporan Board of Directors</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">❤️</div>
+                            <h3>Program Peduli</h3>
+                            <p>Catat dan lapor program-program kepedulian sosial</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">✅</div>
+                            <h3>Manajemen Tugas</h3>
+                            <p>Kelola tugas dan project dengan prioritas yang jelas</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💵</div>
+                            <h3>Laporan Kas</h3>
+                            <p>Catat dan kelola transaksi kas pondok dengan detail</p>
+                        </div>
+                    </div>
 
-                </div> <!-- Akhir dari Grid -->
-
+                    <p style="margin-top: 40px; font-size: 1em; color: #999;">
+                        Pilih menu di atas untuk mulai menggunakan sistem
+                    </p>
+                </div>
             </div>
-        </main>
+
+            <!-- Budgeting Module -->
+            <div id="budgeting" class="module">
+                <div class="module-header">💰 Manajemen Budgeting</div>
+                <div class="module-content">
+                    <iframe src="https://rahdian837.github.io/budgeting_laz/" title="Budgeting System"></iframe>
+                </div>
+            </div>
+
+            <!-- Insentif Module -->
+            <div id="insentif" class="module">
+                <div class="module-header">🎁 Data Insentif</div>
+                <div class="module-content">
+                    <iframe src="https://rahdian837.github.io/laz-insentif-github/" title="Insentif System"></iframe>
+                </div>
+            </div>
+
+            <!-- BOD Report Module -->
+            <div id="bod" class="module">
+                <div class="module-header">📋 Laporan BOD - LAZ Albahjah</div>
+                <div class="module-content">
+                    <iframe src="https://rahdian837.github.io/Laporan-BOD-Laz-Albahjah/" title="BOD Report System"></iframe>
+                </div>
+            </div>
+
+            <!-- Peduli Program Module -->
+            <div id="peduli" class="module">
+                <div class="module-header">❤️ Laporan Program Albahjah Peduli</div>
+                <div class="module-content">
+                    <iframe src="https://rahdian837.github.io/Laporan-Albahjah-peduli/" title="Peduli Report System"></iframe>
+                </div>
+            </div>
+
+            <!-- Task Management Module -->
+            <div id="tugas" class="module">
+                <div class="module-header">✅ Manajemen Tugas - ES BBC 1B</div>
+                <div class="module-content">
+                    <iframe src="https://rahdian837.github.io/Manajemen-tugas-ES-BBC-1B/" title="Task Management System"></iframe>
+                </div>
+            </div>
+
+            <!-- Kas Report Module -->
+            <div id="kas" class="module">
+                <div class="module-header">💵 Laporan Kas Pondok</div>
+                <div class="module-content">
+                    <iframe src="https://rahdian837.github.io/Laporan-kas-pondok/" title="Kas Report System"></iframe>
+                </div>
+            </div>
+	    <!-- Evaluasi LAZ Module -->
+	    <div id="evaluasi" class="module">
+    		<div class="module-header">📈 Evaluasi LAZ</div>
+   		<div class="module-content">
+       		    <iframe src="https://rahdian837.github.io/aplikasi-evaluasi-laz/" title="Evaluasi LAZ"></iframe>
+    		</div>
+	    </div>
+        </div>
 
         <!-- Footer -->
-        <footer class="bg-gray-800 text-gray-400 mt-12">
-            <div class="container mx-auto px-6 py-8 text-center">
-                <p>&copy; 2025 Portal Aplikasi Terpadu. Dibuat dengan ❤️.</p>
-                <p class="text-sm mt-1">Dikelola oleh Tim Anda</p>
-            </div>
-        </footer>
-
+        <div class="footer">
+            <p>© 2024 LAZ Integrated System | Platform Manajemen Terpadu | Developed with ❤️</p>
+        </div>
     </div>
 
+    <script>
+        // Fungsi untuk switch module
+        function switchModule(moduleName, button) {
+            // Sembunyikan semua module
+            const modules = document.querySelectorAll('.module');
+            modules.forEach(module => {
+                module.classList.remove('active');
+            });
+
+            // Tampilkan module yang dipilih
+            const selectedModule = document.getElementById(moduleName);
+            if (selectedModule) {
+                selectedModule.classList.add('active');
+            }
+
+            // Update button active state
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+
+            // Smooth scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // Simpan preference ke localStorage
+            localStorage.setItem('lastModule', moduleName);
+        }
+
+        // Load last visited module
+        window.addEventListener('load', function() {
+            const lastModule = localStorage.getItem('lastModule') || 'dashboard';
+            const button = document.querySelector(`button[onclick="switchModule('${lastModule}', this)"]`);
+            if (button) {
+                switchModule(lastModule, button);
+            }
+        });
+
+        // Keyboard shortcut
+        document.addEventListener('keydown', function(event) {
+            // Alt + 1 untuk Dashboard
+            if (event.altKey && event.key === '1') {
+                switchModule('dashboard', document.querySelectorAll('.nav-btn')[0]);
+            }
+            // Alt + 2 untuk Budgeting
+            if (event.altKey && event.key === '2') {
+                switchModule('budgeting', document.querySelectorAll('.nav-btn')[1]);
+            }
+            // Alt + 3 untuk Insentif
+            if (event.altKey && event.key === '3') {
+                switchModule('insentif', document.querySelectorAll('.nav-btn')[2]);
+            }
+            // Alt + 4 untuk BOD
+            if (event.altKey && event.key === '4') {
+                switchModule('bod', document.querySelectorAll('.nav-btn')[3]);
+            }
+            // Alt + 5 untuk Peduli
+            if (event.altKey && event.key === '5') {
+                switchModule('peduli', document.querySelectorAll('.nav-btn')[4]);
+            }
+            // Alt + 6 untuk Tugas
+            if (event.altKey && event.key === '6') {
+                switchModule('tugas', document.querySelectorAll('.nav-btn')[5]);
+            }
+            // Alt + 7 untuk Kas
+            if (event.altKey && event.key === '7') {
+                switchModule('kas', document.querySelectorAll('.nav-btn')[6]);
+            }
+        });
+    </script>
 </body>
 </html>

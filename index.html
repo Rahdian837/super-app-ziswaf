@@ -138,6 +138,7 @@
 
         .module-content {
             padding: 20px;
+            /* Tambahkan padding agar iframe tidak menempel di tepi */
         }
 
         iframe {
@@ -145,6 +146,7 @@
             height: 700px;
             border: none;
             display: block;
+            border-radius: 8px; /* Tambahkan border-radius untuk iframe */
         }
 
         /* Welcome Module */
@@ -293,6 +295,10 @@
             body {
                 padding: 10px;
             }
+            
+            .module-content {
+                padding: 10px; /* Kurangi padding di mobile */
+            }
 
             .header {
                 margin-bottom: 15px;
@@ -381,7 +387,13 @@
                 <button class="nav-btn" onclick="switchModule('peduli', this)">❤️ Peduli</button>
                 <button class="nav-btn" onclick="switchModule('tugas', this)">✅ Manajemen Tugas</button>
                 <button class="nav-btn" onclick="switchModule('kas', this)">💵 Laporan Kas</button>
-		<button class="nav-btn" onclick="switchModule('evaluasi', this)">📈 Evaluasi LAZ</button>
+		        <button class="nav-btn" onclick="switchModule('evaluasi', this)">📈 Evaluasi LAZ</button>
+                
+                <!-- PENAMBAHAN BARU -->
+                <button class="nav-btn" onclick="switchModule('asistenUjian', this)">🎓 Asisten Ujian</button>
+                <button class="nav-btn" onclick="switchModule('lazAchievee', this)">🏆 LAZ Achievee</button>
+                <button class="nav-btn" onclick="switchModule('abbaratDb', this)">📈 Abbarat DB</button>
+                <!-- AKHIR PENAMBAHAN BARU -->
             </div>
         </div>
 
@@ -425,6 +437,30 @@
                             <h3>Laporan Kas</h3>
                             <p>Catat dan kelola transaksi kas pondok dengan detail</p>
                         </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3>Evaluasi LAZ</h3>
+                            <p>Aplikasi untuk evaluasi kinerja Lembaga Amil Zakat</p>
+                        </div>
+
+                        <!-- PENAMBAHAN BARU DI DASHBOARD -->
+                        <div class="feature-card">
+                            <div class="feature-icon">🎓</div>
+                            <h3>Asisten Ujian</h3>
+                            <p>Asisten AI untuk membantu proses ujian dan evaluasi</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏆</div>
+                            <h3>LAZ Achievee</h3>
+                            <p>Platform tracking pencapaian dan KPI LAZ Albahjah</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3>Abbarat Dashboard</h3>
+                            <p>Dashboard analitik untuk Abbarat</p>
+                        </div>
+                        <!-- AKHIR PENAMBAHAN BARU DI DASHBOARD -->
+
                     </div>
 
                     <p style="margin-top: 40px; font-size: 1em; color: #999;">
@@ -480,13 +516,63 @@
                     <iframe src="https://rahdian837.github.io/Laporan-kas-pondok/" title="Kas Report System"></iframe>
                 </div>
             </div>
-	    <!-- Evaluasi LAZ Module -->
-	    <div id="evaluasi" class="module">
-    		<div class="module-header">📈 Evaluasi LAZ</div>
-   		<div class="module-content">
-       		    <iframe src="https://rahdian837.github.io/aplikasi-evaluasi-laz/" title="Evaluasi LAZ"></iframe>
-    		</div>
-	    </div>
+
+	        <!-- Evaluasi LAZ Module -->
+	        <div id="evaluasi" class="module">
+    		    <div class="module-header">📈 Evaluasi LAZ</div>
+   		        <div class="module-content">
+       		        <iframe src="https://rahdian837.github.io/aplikasi-evaluasi-laz/" title="Evaluasi LAZ"></iframe>
+    		    </div>
+	        </div>
+
+            <!-- PENAMBAHAN MODUL BARU -->
+            
+            <!-- AI Asisten Ujian Module -->
+            <div id="asistenUjian" class="module">
+                <div class="module-header">🎓 AI Asisten Ujian</div>
+                <div class="module-content">
+                    <iframe src="https://rahdian837.github.io/Ai-Asisten-Ujian/" title="AI Asisten Ujian"></iframe>
+                </div>
+            </div>
+
+            <!-- LAZ Achievee Module -->
+            <div id="lazAchievee" class="module">
+                <div class="module-header">🏆 LAZ Albahjah Achievee</div>
+                <div class="module-content">
+                    <!-- PERBAIKAN UNTUK MASALAH LOGIN GOOGLE -->
+                    <div class="login-fix-warning" style="background: #fff8e1; border: 1px solid #ffecb3; border-radius: 8px; padding: 15px 20px; margin-bottom: 20px; text-align: center; font-size: 0.95em; color: #5d4037;">
+                        <p style="margin: 0 0 12px 0; font-weight: 600; font-size: 1.1em;">Catatan Penting</p>
+                        <p style="margin: 0 0 15px 0; line-height: 1.6;">Login Google tidak akan berfungsi di dalam tab ini karena kebijakan keamanan Google. Jika Anda perlu login, silakan gunakan tombol di bawah.</p>
+                        <a href="https://lazalbahjah.achievee.id/" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 10px 22px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);">
+                            Buka LAZ Achievee di Tab Baru (untuk Login)
+                        </a>
+                    </div>
+                    <!-- AKHIR PERBAIKAN -->
+
+                    <iframe src="https://lazalbahjah.achievee.id/" title="LAZ Albahjah Achievee"></iframe>
+                </div>
+            </div>
+
+            <!-- Abbarat Dashboard Module -->
+            <div id="abbaratDb" class="module">
+                <div class="module-header">📈 Abbarat Dashboard</div>
+                <div class="module-content">
+                    <!-- PERBAIKAN UNTUK MASALAH LOGIN 419 -->
+                    <div class="login-fix-warning" style="background: #fff8e1; border: 1px solid #ffecb3; border-radius: 8px; padding: 15px 20px; margin-bottom: 20px; text-align: center; font-size: 0.95em; color: #5d4037;">
+                        <p style="margin: 0 0 12px 0; font-weight: 600; font-size: 1.1em;">Catatan Penting</p>
+                        <p style="margin: 0 0 15px 0; line-height: 1.6;">Halaman login ini mungkin gagal (error 419) di dalam tab ini karena kebijakan keamanan. Jika Anda perlu login, silakan gunakan tombol di bawah.</p>
+                        <a href="https://abbarat.abdashboard.com/" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 10px 22px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);">
+                            Buka Abbarat DB di Tab Baru (untuk Login)
+                        </a>
+                    </div>
+                    <!-- AKHIR PERBAIKAN -->
+
+                    <iframe src="https://abbarat.abdashboard.com/" title="Abbarat Dashboard"></iframe>
+                </div>
+            </div>
+            
+            <!-- AKHIR PENAMBAHAN MODUL BARU -->
+
         </div>
 
         <!-- Footer -->
@@ -566,6 +652,28 @@
             if (event.altKey && event.key === '7') {
                 switchModule('kas', document.querySelectorAll('.nav-btn')[6]);
             }
+            // Alt + 8 untuk Evaluasi LAZ
+            if (event.altKey && event.key === '8') {
+                switchModule('evaluasi', document.querySelectorAll('.nav-btn')[7]);
+            }
+
+            // PENAMBAHAN SHORTCUT BARU
+            // Alt + 9 untuk Asisten Ujian
+            if (event.altKey && event.key === '9') {
+                event.preventDefault(); // Mencegah shortcut default browser
+                switchModule('asistenUjian', document.querySelectorAll('.nav-btn')[8]);
+            }
+            // Alt + 0 untuk LAZ Achievee
+            if (event.altKey && event.key === '0') {
+                event.preventDefault(); // Mencegah shortcut default browser
+                switchModule('lazAchievee', document.querySelectorAll('.nav-btn')[9]);
+            }
+            // Alt + - (minus) untuk Abbarat DB
+            if (event.altKey && event.key === '-') {
+                event.preventDefault(); // Mencegah shortcut default browser
+                switchModule('abbaratDb', document.querySelectorAll('.nav-btn')[10]);
+            }
+            // AKHIR PENAMBAHAN SHORTCUT BARU
         });
     </script>
 </body>

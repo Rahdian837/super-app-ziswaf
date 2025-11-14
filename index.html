@@ -396,6 +396,9 @@
                 <!-- PENAMBAHAN BARU LAGI -->
                 <button class="nav-btn" onclick="switchModule('albahjahKommo', this)">💬 Kommo CRM</button>
                 <!-- AKHIR PENAMBAHAN BARU -->
+                <!-- PENAMBAHAN BARU (TERAKHIR) -->
+                <button class="nav-btn" onclick="switchModule('statusOnline', this)">🌐 Status Online</button>
+                <!-- AKHIR PENAMBAHAN BARU (TERAKHIR) -->
             </div>
         </div>
 
@@ -470,6 +473,14 @@
                             <p>Aplikasi CRM untuk Albahjah Barat</p>
                         </div>
                         <!-- AKHIR PENAMBAHAN BARU LAGI DI DASHBOARD -->
+                        
+                        <!-- PENAMBAHAN BARU (TERAKHIR) DI DASHBOARD -->
+                        <div class="feature-card">
+                            <div class="feature-icon">🌐</div>
+                            <h3>Status Online</h3>
+                            <p>Cek status online layanan dan server</p>
+                        </div>
+                        <!-- AKHIR PENAMBAHAN BARU (TERAKHIR) DI DASHBOARD -->
                     </div>
 
                     <p style="margin-top: 40px; font-size: 1em; color: #999;">
@@ -600,6 +611,15 @@
             </div>
             <!-- AKHIR PENAMBAHAN MODUL BARU LAGI -->
 
+            <!-- PENAMBAHAN MODUL BARU (TERAKHIR) -->
+            <div id="statusOnline" class="module">
+                <div class="module-header">🌐 Cek Status Online</div>
+                <div class="module-content">
+                    <iframe src="https://rahdian837.github.io/status-online/" title="Status Online"></iframe>
+                </div>
+            </div>
+            <!-- AKHIR PENAMBAHAN MODUL BARU (TERAKHIR) -->
+
         </div>
 
         <!-- Footer -->
@@ -709,6 +729,14 @@
                 switchModule('albahjahKommo', document.querySelectorAll('.nav-btn')[11]);
             }
             // AKHIR PENAMBAHAN SHORTCUT BARU LAGI
+
+            // PENAMBAHAN SHORTCUT BARU (TERAKHIR)
+            // Alt + [ untuk Status Online
+            if (event.altKey && event.key === '[') {
+                event.preventDefault(); // Mencegah shortcut default browser
+                switchModule('statusOnline', document.querySelectorAll('.nav-btn')[12]);
+            }
+            // AKHIR PENAMBAHAN SHORTCUT BARU (TERAKHIR)
         });
     </script>
 </body>

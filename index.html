@@ -399,6 +399,9 @@
                 <!-- PENAMBAHAN BARU (TERAKHIR) -->
                 <button class="nav-btn" onclick="switchModule('statusOnline', this)">🌐 Status Online</button>
                 <!-- AKHIR PENAMBAHAN BARU (TERAKHIR) -->
+                <!-- PENAMBAHAN BARU (WAKAF) -->
+                <button class="nav-btn" onclick="switchModule('wakaf', this)">🕌 Wakaf</button>
+                <!-- AKHIR PENAMBAHAN BARU (WAKAF) -->
             </div>
         </div>
 
@@ -481,6 +484,14 @@
                             <p>Cek status online layanan dan server</p>
                         </div>
                         <!-- AKHIR PENAMBAHAN BARU (TERAKHIR) DI DASHBOARD -->
+
+                        <!-- PENAMBAHAN BARU (WAKAF) DI DASHBOARD -->
+                        <div class="feature-card">
+                            <div class="feature-icon">🕌</div>
+                            <h3>Aplikasi Wakaf</h3>
+                            <p>Manajemen dan pelaporan data wakaf</p>
+                        </div>
+                        <!-- AKHIR PENAMBAHAN BARU (WAKAF) DI DASHBOARD -->
                     </div>
 
                     <p style="margin-top: 40px; font-size: 1em; color: #999;">
@@ -620,6 +631,15 @@
             </div>
             <!-- AKHIR PENAMBAHAN MODUL BARU (TERAKHIR) -->
 
+            <!-- PENAMBAHAN MODUL BARU (WAKAF) -->
+            <div id="wakaf" class="module">
+                <div class="module-header">🕌 Aplikasi Wakaf</div>
+                <div class="module-content">
+                    <iframe src="https://rahdian837.github.io/aplikasi-wakaf/" title="Aplikasi Wakaf"></iframe>
+                </div>
+            </div>
+            <!-- AKHIR PENAMBAHAN MODUL BARU (WAKAF) -->
+
         </div>
 
         <!-- Footer -->
@@ -737,6 +757,14 @@
                 switchModule('statusOnline', document.querySelectorAll('.nav-btn')[12]);
             }
             // AKHIR PENAMBAHAN SHORTCUT BARU (TERAKHIR)
+
+            // PENAMBAHAN SHORTCUT BARU (WAKAF)
+            // Alt + ] untuk Aplikasi Wakaf
+            if (event.altKey && event.key === ']') {
+                event.preventDefault(); // Mencegah shortcut default browser
+                switchModule('wakaf', document.querySelectorAll('.nav-btn')[13]);
+            }
+            // AKHIR PENAMBAHAN SHORTCUT BARU (WAKAF)
         });
     </script>
 </body>
